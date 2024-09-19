@@ -1,0 +1,46 @@
+name: Update EKS Deployment
+
+on:
+  workflow_run:
+    workflows: ["Build and Push Docker Images"]
+    types:
+      - completed
+
+jobs:
+  update-deployment:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up AWS CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-pip
+          pip3 install awscli
+
+      - name: Configure AWS CLI
+        run: |
+          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws configure set region us-east-1
+
+      - name: Update kubeconfig for EKS
+        run: |
+          aws eks update-kubeconfig --name bookshop_cluster --region us-east-1
+
+      - name: Rollout backend with new image
+        run: |
+          kubectl set image deployment/backend backend=mladenovskistefan/backend:latest \
+            --namespace devops-project
+
+      - name: Rollout frontend with new image
+        run: |
+          kubectl set image deployment/frontend frontend=mladenovskistefan/frontend:latest \
+            --namespace devops-project
+
+      - name: Verify Rollout Status for Backend
+        run: |
+          kubectl rollout status deployment/backend --namespace devops-project
+
+      - name: Verify Rollout Status for Frontend
+        run: |
+          kubectl rollout status deployment/frontend --namespace devops-project
