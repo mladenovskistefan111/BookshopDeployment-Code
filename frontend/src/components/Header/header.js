@@ -4,7 +4,7 @@ import {Navbar,Nav} from "react-bootstrap"
 const header = (props) => {
     return (
         <Navbar bg="dark" variant="dark" expand="lg" style={{ backgroundColor: '#333', fontFamily: 'Arial, sans-serif' }}>
-            <Navbar.Brand style={{ color: '#FFFFFF',fontFamily:"Roboto",fontSize:"20px"}} as={Link} to="/">EMT LIBRARY 🖥️</Navbar.Brand>
+            <Navbar.Brand style={{ color: '#FFFFFF',fontFamily:"Roboto",fontSize:"20px"}} as={Link} to="/">BOOKSHOP LIBRARY 🖥️</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
