@@ -40,7 +40,9 @@ jobs:
       - name: Verify Rollout Status for Backend
         run: |
           kubectl rollout status deployment/backend --namespace devops-project
+          kubectl rollout restart deployment/backend --namespace devops-project
 
       - name: Verify Rollout Status for Frontend
         run: |
           kubectl rollout status deployment/frontend --namespace devops-project
+          kubectl rollout restart deployment/frontend --namespace devops-project
