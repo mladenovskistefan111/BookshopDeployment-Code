@@ -29,18 +29,18 @@ jobs:
 
       - name: Rollout backend with new image
         run: |
-          kubectl set image deployment/backend-deployment backend=mladenovskistefan/backend:latest \
+          kubectl set image deployment/backend backend=mladenovskistefan/backend:latest \
             --namespace devops-project
 
       - name: Rollout frontend with new image
         run: |
-          kubectl set image deployment/frontend-deployment frontend=mladenovskistefan/frontend:latest \
+          kubectl set image deployment/frontend frontend=mladenovskistefan/frontend:latest \
             --namespace devops-project
 
       - name: Verify Rollout Status for Backend
         run: |
-          kubectl rollout status deployment/backend-deployment --namespace devops-project
+          kubectl rollout status deployment/backend --namespace devops-project
 
       - name: Verify Rollout Status for Frontend
         run: |
-          kubectl rollout status deployment/frontend-deployment --namespace devops-project
+          kubectl rollout status deployment/frontend --namespace devops-project
