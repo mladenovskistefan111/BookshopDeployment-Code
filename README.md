@@ -1,4 +1,4 @@
-# **AppDeploymentProject-Code**
+# **BookshopDeployment-Code**
 
 This repository contains the **frontend (Angular)** and **backend (Spring Boot)** code for the **bookshop application**, which is part of the **AppDeploymentProject-Infrastructure**. The repository uses **CI/CD pipelines** to automate code build, image creation, and deployment to **DockerHub** and **Kubernetes (EKS)**.
 
