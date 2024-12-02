@@ -1,11 +1,11 @@
 # **BookshopDeployment-Code**
 
-This repository contains the **frontend (Angular)** and **backend (Spring Boot)** code for the **bookshop application**, which is part of the **AppDeploymentProject-Infrastructure**. The repository uses **CI/CD pipelines** to automate Continuous Integration (CI) to **DockerHub** and Continuous Deploymend (CD) to **Kubernetes (EKS)**.
+This repository contains the **frontend (React)** and **backend (Spring Boot)** code for the **bookshop application**, which is part of the **AppDeploymentProject-Infrastructure**. The repository uses **CI/CD pipelines** to automate Continuous Integration (CI) to **DockerHub** and Continuous Deployment (CD) to **Kubernetes (EKS)**.
 
 ## **CI/CD Pipelines**
 
 - **Integration Pipeline**: Automatically triggered when changes are pushed to the repository. It:
-  - Builds both frontend (Angular) and backend (Spring Boot) code.
+  - Builds both frontend (React) and backend (Spring Boot) code.
   - Creates Docker images for both parts using respective Dockerfiles.
   - Pushes the images to **DockerHub**.
 
